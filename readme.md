@@ -1,5 +1,5 @@
-##百度编辑器向七牛云存储上传图片资源<br>
-1. ####文件导入<br>
+## 百度编辑器向七牛云存储上传图片资源<br>
+1. #### 文件导入<br>
    * 下载百度编辑器源码 链接：[最新版本1.4.3.3 Jsp UTF-8版本](https://ueditor.baidu.com/build/build_down.php?n=ueditor&v=1_4_3_3-utf8-jsp)<br>
    * 创建ueditor目录 resources > static > ueditor 将源码拷贝到目录中
       * jsp目录只保留 config.json 文件即可
@@ -13,7 +13,7 @@
                     <version>0.0.1</version>
            </dependency>
       ```
-2. ####项目配置<br>
+2. #### 项目配置<br>
    * application.yml
       ```application.yml
          ue:
@@ -48,7 +48,7 @@
             multipart:
               max-file-size: 100MB
       ```
-3. ####测试     
+3. #### 测试     
    * 新建Controller 添加mapping
       ```
          @GetMapping("/ue")
@@ -82,5 +82,5 @@
          </html>
       ```
       如有问题可以加群：806893930 ，我第一次建群，里面就几个人，欢迎你的加入
-4. ####参考百度文档
+4. #### 参考百度文档
     代码只修改了上传和获取文件列表的方法，添加了服务器统一请求接口路径的拦截器，没有别的改动，[百度文档](http://fex.baidu.com/ueditor/)
