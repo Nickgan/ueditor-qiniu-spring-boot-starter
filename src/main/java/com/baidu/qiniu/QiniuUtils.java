@@ -59,7 +59,6 @@ public class QiniuUtils {
                 Response response = uploadManager.put(byteInputStream, fileName, upToken, null, null);
                 //解析上传成功的结果
                 DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
-                System.out.println(putRet.key);
                 return properties.getQiniu().get("cdn") + putRet.key;
             } catch (QiniuException ex) {
                 return null;
@@ -92,7 +91,6 @@ public class QiniuUtils {
                 addHeader("Content-Type", "application/octet-stream")
                 .addHeader("Authorization", "UpToken " + upToken)
                 .post(rb).build();
-        System.out.println(request.headers());
         OkHttpClient client = new OkHttpClient();
         okhttp3.Response response = null;
         try {

@@ -17,7 +17,6 @@ import java.util.Map;
  * @author hancong03@baidu.com
  */
 public final class ConfigManager {
-
     private String configFile = null;
     private JSONObject jsonConfig = null;
     // 涂鸦上传filename定义
@@ -31,7 +30,6 @@ public final class ConfigManager {
     private ConfigManager(String configFile) throws IOException {
         this.configFile = configFile;
         this.initEnv();
-
     }
 
     /**
@@ -41,31 +39,22 @@ public final class ConfigManager {
      * @return 配置管理器实例或者null
      */
     public static ConfigManager getInstance(String configFile) {
-
         try {
             return new ConfigManager(configFile);
         } catch (Exception e) {
             return null;
         }
-
     }
-
     // 验证配置文件加载是否正确
     public boolean valid() {
         return this.jsonConfig != null;
     }
-
     public JSONObject getAllConfig() {
-
         return this.jsonConfig;
-
     }
-
     public Map<String, Object> getConfig(int type) {
-
         Map<String, Object> conf = new HashMap<String, Object>();
         String savePath = null;
-
         switch (type) {
 
             case ActionMap.UPLOAD_FILE:
@@ -121,13 +110,9 @@ public final class ConfigManager {
                 break;
 
         }
-
         conf.put("savePath", savePath);
-
         return conf;
-
     }
-
     private void initEnv() throws IOException {
         String configContent = this.readFile(this.configFile);
         try {
@@ -136,28 +121,18 @@ public final class ConfigManager {
         } catch (Exception e) {
             this.jsonConfig = null;
         }
-
     }
-
     private String[] getArray(String key) {
-
         JSONArray jsonArray = this.jsonConfig.getJSONArray(key);
         String[] result = new String[jsonArray.length()];
-
         for (int i = 0, len = jsonArray.length(); i < len; i++) {
             result[i] = jsonArray.getString(i);
         }
-
         return result;
-
     }
-
     private String readFile(String path) throws IOException {
-
         StringBuilder builder = new StringBuilder();
-
         try {
-
             InputStreamReader reader = new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream(path), "UTF-8");
             BufferedReader bfReader = new BufferedReader(reader);
 
@@ -166,17 +141,13 @@ public final class ConfigManager {
             while ((tmpContent = bfReader.readLine()) != null) {
                 builder.append(tmpContent);
             }
-
             bfReader.close();
 
         } catch (UnsupportedEncodingException e) {
             // 忽略
         }
-
         return this.filter(builder.toString());
-
     }
-
     // 过滤输入字符串, 剔除多行注释以及替换掉反斜杠
     private String filter(String input) {
 
