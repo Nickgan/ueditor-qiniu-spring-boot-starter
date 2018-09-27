@@ -6,9 +6,11 @@ import com.qiniu.common.QiniuException;
 import com.qiniu.common.Zone;
 import com.qiniu.common.ZoneReqInfo;
 import com.qiniu.http.Response;
+import com.qiniu.storage.BucketManager;
 import com.qiniu.storage.Configuration;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
+import com.qiniu.storage.model.FileInfo;
 import com.qiniu.util.Auth;
 import com.qiniu.util.UrlSafeBase64;
 import okhttp3.OkHttpClient;
@@ -18,6 +20,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 七牛云工具类
@@ -100,6 +105,44 @@ public class QiniuUtils {
             return null;
         }
         return properties.getQiniu().get("cdn") + putRet.key;
+    }
+
+    /**
+     * @param prefix 文件前缀
+     * @param index  从第几个开始
+     * @param size   返回条数
+     * @param total  总条数
+     * @return java.util.List<java.lang.String>
+     * @author lihy
+     */
+    public static List<String> listFile(String prefix, int index, int size, Total total) {
+        // 构造一个带指定Zone对象的配置类
+        Configuration cfg = new Configuration(Zone.zone0());
+        String accessKey = properties.getQiniu().get("accessKey");
+        String secretKey = properties.getQiniu().get("secretKey");
+        String bucket = properties.getQiniu().get("bucket");
+        Auth auth = Auth.create(accessKey, secretKey);
+        BucketManager bucketManager = new BucketManager(auth, cfg);
+        // 每次迭代的长度限制，最大1000，推荐值 1000
+        int limit = 1000;
+        // 指定目录分隔符，列出所有公共前缀（模拟列出目录效果）。缺省值为空字符串
+        String delimiter = "";
+        // 列举空间文件列表
+        BucketManager.FileListIterator fileListIterator = bucketManager.createFileListIterator(bucket, prefix, limit, delimiter);
+        FileInfo[] items = null;
+        // 只列举最近的1000个文件多了也不利于展示
+        if (fileListIterator.hasNext()) {
+            //处理获取的file list结果
+            items = fileListIterator.next();
+        }
+        if (items == null) {
+            return null;
+        }
+        total.setTotal(items.length);
+        if (index < 0 || index > items.length) {
+            return null;
+        }
+        return Arrays.stream(items).skip(index).limit(size).map(fileInfo -> properties.getQiniu().get("cdn") + fileInfo.key).collect(Collectors.toList());
     }
 
     /**
