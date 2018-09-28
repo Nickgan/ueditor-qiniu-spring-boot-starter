@@ -6,16 +6,28 @@
     <groupId>com.dcssn</groupId>
     <artifactId>ueditor-qiniu-spring-boot-start</artifactId>
     <version>0.0.1</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <packaging>jar</packaging>
 
     <name>ueditor-qiniu-spring-boot-start</name>
     <description>百度编辑器向七牛云存储上传图片资源</description>
+    <url>https://github.com/weiangongsi/</url>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>8</version>
     </parent>
 
     <properties>
@@ -28,11 +40,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.0.5.RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>2.0.5.RELEASE</version>
             <optional>true</optional>
         </dependency>
 
@@ -63,5 +77,39 @@
         </dependency>
 
     </dependencies>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/weiangongsi/ueditor-qiniu-spring-boot-start</url>
+        <connection>https://github.com/weiangongsi/ueditor-qiniu-spring-boot-start.git</connection>
+        <developerConnection>https://github.com/weiangongsi/</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>lihaoyang</name>
+            <email>weiangongsi@gmail.com</email>
+            <url>https://www.dcssn.com</url>
+        </developer>
+    </developers>
+
+
+    <distributionManagement>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
