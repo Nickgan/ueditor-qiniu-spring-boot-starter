@@ -1,10 +1,10 @@
 ## 百度编辑器向七牛云存储上传图片资源<br>
 1. #### 文件导入<br>
    * 下载百度编辑器源码 链接：[最新版本1.4.3.3 Jsp UTF-8版本](https://ueditor.baidu.com/build/build_down.php?n=ueditor&v=1_4_3_3-utf8-jsp)<br>
-   * 创建ueditor目录 resources > static > ueditor 将源码拷贝到目录中
-      * jsp目录只保留 config.json 文件即可
    * 构建项目<br>
        下载本项目 执行maven命令 install ，成功后会将生成的jar包放入本地仓库
+   * 新建项目创建ueditor目录 resources > static > ueditor 将源码拷贝到目录中
+      * jsp目录只保留 config.json 文件即可
    * pom文件引入 ueditor-qiniu-spring-boot-start
       ``` 下载源码 maven install 会将jar包放到本地仓库
            <dependency>
