@@ -22,7 +22,7 @@
            qiniu:
              accessKey: 8Dw03nJLiST7RvsWtPca1JHDgeu8O0BA******
              secretKey: LHkGDHPZCyrUk5BxG7vC5sLY9LmDxf******
-             cdn: http://image.xxx.com/ #CDN 加速域名
+             cdn: http://image.xxx.com/ #CDN 加速域名 最后面的斜杠（/）不能少
              bucket: image #存储空间
              zone: zone0 #zone代表机房的位置
       ```
