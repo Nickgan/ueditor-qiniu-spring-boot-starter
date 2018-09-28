@@ -110,7 +110,7 @@ public class QiniuUtils {
      * @param index  从第几个开始
      * @param size   返回条数
      * @param total  总条数
-     * @return java.util.List<java.lang.String>
+     * @return 文件列表
      * @author lihy
      */
     public static List<String> listFile(String prefix, int index, int size, Total total) {
