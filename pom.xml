@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dcssn</groupId>
-    <artifactId>ueditor-qiniu-spring-boot-start</artifactId>
-    <version>0.0.1</version>
+    <artifactId>ueditor-qiniu-spring-boot-starter</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>ueditor-qiniu-spring-boot-start</name>
+    <name>ueditor-qiniu-spring-boot-starter</name>
     <description>百度编辑器向七牛云存储上传图片资源</description>
     <url>https://github.com/weiangongsi/</url>
 
@@ -63,8 +63,8 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/weiangongsi/ueditor-qiniu-spring-boot-start</url>
-        <connection>https://github.com/weiangongsi/ueditor-qiniu-spring-boot-start.git</connection>
+        <url>https://github.com/weiangongsi/ueditor-qiniu-spring-boot-starter</url>
+        <connection>https://github.com/weiangongsi/ueditor-qiniu-spring-boot-starter.git</connection>
         <developerConnection>https://github.com/weiangongsi/</developerConnection>
     </scm>
 

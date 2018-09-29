@@ -6,7 +6,7 @@
       ``` 
            <dependency>
                     <groupId>com.dcssn</groupId>
-                    <artifactId>ueditor-qiniu-spring-boot-start</artifactId>
+                    <artifactId>ueditor-qiniu-spring-boot-starter</artifactId>
                     <version>0.0.1</version>
            </dependency>
       ```
@@ -85,4 +85,4 @@
 4. #### 参考百度文档
     代码只修改了上传和获取文件列表的方法，添加了服务器统一请求接口路径的拦截器，没有别的改动，[百度文档](http://fex.baidu.com/ueditor/)
 5. #### 项目案例
-   [https://github.com/weiangongsi/ueditor-qiniu-spring-boot-start-example](https://github.com/weiangongsi/ueditor-qiniu-spring-boot-start-example)
+   [https://github.com/weiangongsi/ueditor-qiniu-spring-boot-starter-example](https://github.com/weiangongsi/ueditor-qiniu-spring-boot-start-example)
