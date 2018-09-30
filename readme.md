@@ -10,9 +10,29 @@
                     <version>0.0.1</version>
            </dependency>
       ```
-   * 下载百度编辑器源码 链接：[最新版本1.4.3.3 Jsp UTF-8版本](https://ueditor.baidu.com/build/build_down.php?n=ueditor&v=1_4_3_3-utf8-jsp)<br>
-   * 创建ueditor目录 resources > static > ueditor ，将源码拷贝到目录中
-   * jsp目录只保留 config.json 文件即可
+   * 下载百度编辑器源码 版本
+      * 链接：[最新版本1.4.3.3 Jsp UTF-8版本](https://ueditor.baidu.com/build/build_down.php?n=ueditor&v=1_4_3_3-utf8-jsp)<br>
+      * 创建ueditor目录 resources > static > ueditor ，将源码拷贝到目录中
+      * jsp目录只保留 config.json 文件即可
+      * 优点：可以自己修改百度编辑器js中的内容<br><br>   
+   * 不下载百度编辑器源码 版本
+      * pom文件引入 
+          ```
+              <dependency>
+                      <groupId>com.dcssn</groupId>
+                      <artifactId>ueditor-static</artifactId>
+                      <version>0.0.1</version>
+              </dependency>
+          ```
+      * 一定要有 [config.json](https://github.com/weiangongsi/ueditor-qiniu-spring-boot-starter-example/blob/master/src/main/resources/static/ueditor/jsp/config.json) 放到 resources > static > ueditor 目录下
+      * 创建百度编辑器的时候要设置serverUrl
+      * ```
+             var ue = UE.getEditor('editor', {
+                    serverUrl: '/ueditor.do' //服务器统一请求接口路径
+                });
+         ```
+      * 优点：不用拷贝源码到resource > static 下面，只需要一个 config.json
+      * 缺点：创建百度编辑器实例的时候要设置serverUrl
 2. #### 项目配置<br>
    * application.yml
       ```application.yml
@@ -36,8 +56,9 @@
       | 北美          | zoneNa0       | 
       | 东南亚        | zoneAs0       | 
    
-   * static/ueditor/ueditor.config.js <br>
-      将serverUrl 改为application.yml 中ue.server-url 的值
+   * serverUrl<br>
+      下载源码版本将static/ueditor/ueditor.config.js 改为application.yml 中ue.server-url 的值<br>
+      不下载源码版本创建百度编辑器的时候要设置serverUrl 设置为application.yml 中ue.server-url 的值
    * config.json <br>
       图片访问路径前缀（imageUrlPrefix）、视频访问路径前缀、文件访问路径前缀不要赋值，会影响回显，其余参数可以按照百度文档修改
    * 上传文件大小 <br>
