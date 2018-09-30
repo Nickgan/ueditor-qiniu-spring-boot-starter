@@ -10,12 +10,12 @@
                     <version>0.0.1</version>
            </dependency>
       ```
-   * 下载百度编辑器源码 版本
+   * 下载百度编辑器源码
       * 链接：[最新版本1.4.3.3 Jsp UTF-8版本](https://ueditor.baidu.com/build/build_down.php?n=ueditor&v=1_4_3_3-utf8-jsp)<br>
       * 创建ueditor目录 resources > static > ueditor ，将源码拷贝到目录中
       * jsp目录只保留 config.json 文件即可
       * 优点：可以自己修改百度编辑器js中的内容<br><br>   
-   * 不下载百度编辑器源码 版本
+   * 不下载百度编辑器源码
       * pom文件引入 
           ```
               <dependency>
