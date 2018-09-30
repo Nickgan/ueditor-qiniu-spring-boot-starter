@@ -102,6 +102,10 @@
          </body>
          </html>
       ```
+      不下载百度编辑器源码 引入jar包中的js文件<br>
+      ```
+          <script th:src="@{/webjars/ueditor/ueditor.config.js}"></script>
+      ```
       如有问题可以加群：806893930 ，我第一次建群，里面就几个人，欢迎你的加入
 4. #### 参考百度文档
     代码只修改了上传和获取文件列表的方法，添加了服务器统一请求接口路径的拦截器，没有别的改动，[百度文档](http://fex.baidu.com/ueditor/)
