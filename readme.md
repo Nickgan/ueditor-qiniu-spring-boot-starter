@@ -7,7 +7,7 @@
            <dependency>
                     <groupId>com.dcssn</groupId>
                     <artifactId>ueditor-qiniu-spring-boot-starter</artifactId>
-                    <version>0.0.2</version>
+                    <version>0.0.3</version>
            </dependency>
       ```
    * 下载百度编辑器源码
