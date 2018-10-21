@@ -82,8 +82,8 @@ public class MultiState implements State {
 			builder.append( ",\""+ stateVal +"\": \"" + this.infoMap.get( stateVal ) + "\"" );
 			
 		}
-		
-		builder.append( ", list: [" );
+
+		builder.append( ",\""+"list"+"\":[" );
 		
 		
 		iterator = this.stateList.iterator();
