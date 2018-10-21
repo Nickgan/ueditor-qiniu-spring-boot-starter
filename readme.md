@@ -105,6 +105,8 @@
       不下载百度编辑器源码 引入jar包中的js文件<br>
       ```
           <script th:src="@{/webjars/ueditor/ueditor.config.js}"></script>
+          <script th:src="@{/webjars/ueditor/ueditor.all.min.js}"></script>
+          <script th:src="@{/webjars/ueditor/zh-cn/zh-cn.js}"></script>
       ```
       如有问题可以加群：806893930 ，我第一次建群，里面就几个人，欢迎你的加入
 4. #### 参考百度文档
